@@ -1,0 +1,230 @@
+/* حذف الهوامش والبداية بخط الآيفون */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'SF Pro Display', sans-serif;
+}
+
+/* الخلفية الرئيسية + تنسيق مركزي للمحتوى */
+body {
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* الحاوية العامة لتوسيط المحتوى */
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* مربع زجاجي للرسائل والزر */
+.glass-box {
+  background: rgba(0, 0, 0, 0.3); /* خلي الخلفية أغمق شوي */
+  border: 1px solid rgba(255, 255, 255, 0.25); /* زود شفافية الخط */
+  backdrop-filter: blur(10px); /* زود التمويه للزجاجية */
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); /* خلي الظل أقوى شوي */
+}
+
+/* زر الرجوع تحت البريد */
+.glass-box button.back-btn {
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.glass-box button.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* تنسيق نصوص التنبيه وغيره */
+.warning, .loader, .success, .error {
+  display: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* خلفية تأكيد كلمة السر */
+.password-prompt {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* صندوق إدخال كلمة المرور */
+.prompt-box {
+  background-color: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  backdrop-filter: blur(0px);
+}
+
+.prompt-box input {
+  padding: 10px;
+  width: 80%;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+/* الحاوية العامة للرسائل */
+.messages-container {
+  padding: 30px 20px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* كل بطاقة رسالة فردية */
+.message-card {
+  background: rgba(0, 0, 0, 0.5); /* تقليل الشفافية لظهور النص بشكل أوضح */
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* صورة المجهول */
+.message-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid white;
+  position: relative;
+}
+
+/* الخط الفاصل العمودي من تحت الصورة */
+.message-card img::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: #000;
+}
+
+/* النص داخل الرسالة */
+.message-text {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+}
+
+/* إخفاء مؤقت لبعض العناصر */
+.hidden {
+  display: none;
+}
+
+/* الأزرار العامة */
+button {
+  padding: 10px 20px;
+  margin: 8px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* تنسيق صندوق الرسالة إذا كان موجود */
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 15px;
+  border: none;
+  resize: none;
+  font-size: 16px;
+}
+
+
+
+
+.footer-glass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 300; /* خليه رفيع */
+  border-radius: 0 0 20px 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  user-select: none;
+  z-index: 999;
+  line-height: 1.2; /* يخلي الارتفاع أقل */
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 300; /* رفيع */
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  line-height: 1.2;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ddd;
+}
+
+.rights-text {
+  white-space: nowrap;
+  font-weight: 300; /* رفيع */
+}

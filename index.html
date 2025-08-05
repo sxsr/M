@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>- صارحني -</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content=" صارح حمد هنا !">
+  <title>- صارحني -</title>
+  <meta name="keywords" content="- صارحني وقول إلي بخاطرك -">
+  <link rel="icon" href="images/profile.png">
+
+</head>
+<body>
+  <div class="main-container">
+    <div class="glass-box">
+      <h2>في خاطرك كلام تقوله ؟</h2>
+      <div class="warning">اكتب رسالتك اول ! ⚠️</div>
+      <div class="success">✅ تم الإرسال</div>
+      <div class="error">❌ حدث خطأ أثناء الإرسال</div>
+      <div class="loader">⏳ جاري الإرسال...</div>
+      <textarea id="message" placeholder="سم واكتب هنا إلي بخاطرك ..."></textarea>
+      <button    onclick="sendMessage()">  📩 إرسال </button>
+      <button onclick="openPrompt()">البريد</button>
+    </div>
+  </div>
+
+  <div class="password-prompt hidden" id="passwordPrompt">
+    <div class="prompt-box">
+      <p>عندك الرمز حطة ماعندك لاتتملقف وتحاول !</p>
+      <input type="password" id="passwordInput" placeholder="••••••">
+      <br />
+      <button onclick="checkPassword()">دخول</button>
+    </div>
+  </div>
+
+  <footer class="footer-glass">
+    <button class="back-btn" onclick="window.location.href='https://sxsr.github.io/S/'"> الرجوع</button>
+    <div class="rights-text">جميع الحقوق محفوظة</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

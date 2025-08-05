@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>- البريد -</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content=" صارح حمد هنا !">
+  <title>- البريد  -</title>
+  <meta name="keywords" content="- صارحني وقول إلي بخاطرك -">
+  <link rel="icon" href="images/profile.png">
+
+</head>
+<body>
+  <div class="messages-container" id="messagesContainer"></div>
+
+  <footer class="footer-glass">
+    <button class="back-btn" onclick="history.back()"> الرجوع</button>
+    <div class="rights-text">جميع الحقوق محفوظة</div>
+  </footer>
+
+  <script>
+    const url = "https://sheetdb.io/api/v1/ldqlu850q8c9x";
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("messagesContainer");
+        data.reverse().forEach(row => {
+          const card = document.createElement("div");
+          card.className = "message-card";
+          card.innerHTML = `
+            <img src="m.png" alt="مجهول">
+            <div>
+              <strong>مجهول</strong>
+              <p>${row.message}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      });
+  </script>
+</body>
+</html>
